@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Vue</title>
+
+    <link rel="stylesheet" type="text/css" href="css/estilos.css" />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Righteous"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+  </head>
+  <body>
+    <nav class="navbar navbar-dark bg-dark">
+      <span class="navbar-brand mb-0 h1">Vue.js</span>
+    </nav>
+    <br>
+        <div id="app">
+          <button class="cart btn btn-info">
+            Cart ({{ cart.length }})
+          </button>
+            <product :premium="premium" @add-to-cart="updateCart" @rem-to-cart="remCart"></product>
+            
+            <!--<product-details :details="details"></product-details>
+            
+            <product></product>-->
+        </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="main.js"></script>
+
+  </body>
+</html>
