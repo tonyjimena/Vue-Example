@@ -11,7 +11,7 @@ Vue.component('product', {
         <div class="product">
 
             <div class="product-image">
-              <img v-bind:src="image">
+              <img class="calcetines" v-bind:src="image">
             </div>
             
             <div class="product-info">
@@ -40,10 +40,10 @@ Vue.component('product', {
                 </option>
               </select> -->
               <div class="botones">
-              <button class="btn btn-primary" v-on:click="addToCart"
+              <button class="waves-effect waves-light btn" v-on:click="addToCart"
               :disabled="!inStock"
               :class="{ disabledButton: !inStock }">Add to cart</button>
-              <button class="btn btn-danger" v-on:click="remToCart">Remove to cart</button>
+              <button class="waves-effect waves-light btn red" v-on:click="remToCart">Remove to cart</button>
               </div>
             </div>
 
@@ -141,39 +141,44 @@ Vue.component('product-review', {
             </li>
         </ul>
     </p>
-    <p>
-      <label for="name">Name:</label>
-      <input id="name" v-model="name" placeholder="name">
-    </p>
-    
-    <p>
-      <label for="review">Review:</label>      
-      <textarea id="review" v-model="review"></textarea>
-    </p>
-    
-    <p>
-      <label for="rating">Rating:</label>
-      <select id="rating" v-model.number="rating">
-        <option>5</option>
-        <option>4</option>
-        <option>3</option>
-        <option>2</option>
-        <option>1</option>
-      </select>
-    </p>
+    <div class="input-field col s6">
+          <input id="name" v-model="name" type="text" class="validate">
+          <label for="name">Name</label>
+    </div>
 
-    <p>
+    <div class="input-field col s12">
+          <textarea id="review" v-model="review" class="materialize-textarea"></textarea>
+          <label for="review">Review</label>
+    </div>
+        <select class="browser-default" id="rating" v-model.number="rating">
+        <option disabled selected>Choose your option</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        </select>
+    <label>rating</label>
+
+    <!-- Switch -->
+    <div class="switch">
+      <label>
+        Off
+        <input type="checkbox" id="recomend" v-model="recomend">
+        <span class="lever"></span>
+        On
+      </label>
+    </div> 
+    <!--<p>
     <label for="recomend">¿Recomendarias este producto?</label>
 
       <p>Yes</p><input type="radio" id="recomend" v-model="recomend" name="recomend" value="Yes">
 
       <p>No</p><input type="radio" id="recomend" v-model="recomend" name="recomend" value="No">
 
-    </p>
+    </p>-->
         
-    <p>
-      <input type="submit" value="Submit">  
-    </p>    
+    <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+        <i class="material-icons right">send</i>
+    </button>  
   
   </form>
         `,
@@ -219,8 +224,8 @@ Vue.component('product-tabs', {
     },
     template: `
         <div>
-            <ul>
-            <span class="tab"
+            <ul class="pagination">
+            <span class="waves-effect"
                 :class="{ activeTab: selectedTab === tab}"
                 v-for="(tab, index) in tabs"
                 :key="index"
@@ -309,5 +314,4 @@ var app = new Vue ({
         }
     }
 })
-
 
